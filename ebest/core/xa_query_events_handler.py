@@ -1,7 +1,7 @@
 from ebest.settings import LOG
 
 
-class XAQeuryEvents:
+class XAQeuryEventsHandler:
     status = False
 
     def OnReceiveData(self, szTrCode):

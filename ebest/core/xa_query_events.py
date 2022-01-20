@@ -1,6 +1,6 @@
 import win32com.client
 import pythoncom
-from src.xa_query_events.xa_query_events import XAQueryEvents
+from ebest.core.xa_query_events_handler import XAQeuryEventsHandler
 from constants import BASE_DIR
 
 
@@ -37,9 +37,9 @@ class XAQueryEventsBase:
         self.query.LoadFromResFile(self.res_file_dir)
 
     def receive(self):
-        while XAQueryEvents.status == False:
+        while XAQeuryEventsHandler.status == False:
             pythoncom.PumpWaitingMessages()
-        XAQueryEvents.status = False
+        XAQeuryEventsHandler.status = False
 
     def request(self, bNext='0'):
         # 0이면 조회 1이면 다음 조회
