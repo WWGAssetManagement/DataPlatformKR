@@ -1,6 +1,6 @@
 import win32com.client
 import pythoncom
-from .xa_event_handler import XASessionEventHandler
+from ebest.core.xa_event_handler import XASessionEventHandler
 
 
 class XASession:
