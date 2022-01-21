@@ -12,18 +12,20 @@ class Login(XASession):
 
     def __init__(self):
         super().__init__()
+        self.__set_login_info()
+        self.__request()
 
     def __set_login_info(self):
         self.__id = os.environ.get("EBEST_ID")
         self.__pwd = os.environ.get("EBEST_PASSWORD")
-        self.__cert = os.environ.get("EBSET_CERT")
+        self.__cert = os.environ.get("EBEST_CERT")
         self.__account_password = os.environ.get("EBEST_ACCOUNT_PASSWORD")
         self.__url = os.environ.get("EBEST_URL")
 
     def __request(self):
         self.inst_xa_session.ConnectServer(self.__url, 20001)
         self.inst_xa_session.Login(self.__id, self.__pwd, self.__cert, 0, 0)
-        self.receive()
+        self._receive()
 
     def get_account(self) -> list:
         num_accounts = self.inst_xa_session.GetAccountListCount()
