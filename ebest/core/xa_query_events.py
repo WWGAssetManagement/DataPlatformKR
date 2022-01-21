@@ -13,7 +13,7 @@ class XAQueryEventsBase:
     res_file_dir = None
 
     def __init__(self, tr_code):
-        self.query = win32com.client.DispatchWithEvents("XA_DataSet.XAQuery", XAQueryEvents)
+        self.query = win32com.client.DispatchWithEvents("XA_DataSet.XAQuery", XAQeuryEventsHandler)
         self.__tr_code = tr_code
         self._set_inblock_name()
         self._set_outblock_name()
