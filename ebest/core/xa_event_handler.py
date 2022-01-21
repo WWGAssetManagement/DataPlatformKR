@@ -5,10 +5,11 @@ class XASessionEventHandler:
     status = False
 
     def OnLogin(self, code, msg):
-        LOG.logger.log(f"OnLogin: {code}, {msg}")
+        LOG.logger.debug(f"OnLogin: {code}, {msg}")
+        XASessionEventHandler.status = True
 
     def OnLogout(self):
-        LOG.logger.log("Logout")
+        LOG.logger.debug("Logout")
 
     def OnDisconnect(self):
-        LOG.logger.log("Disconnect")
+        LOG.logger.debug("Disconnect")
