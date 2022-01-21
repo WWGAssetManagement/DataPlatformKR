@@ -6,7 +6,7 @@ from constants import BASE_DIR
 
 class XAQueryEvents:
     query = None
-    __tr_code = None
+    tr_code = None
     inblock = None
     outblock = None
     outblock1 = None
@@ -14,7 +14,7 @@ class XAQueryEvents:
 
     def __init__(self, tr_code):
         self.query = win32com.client.DispatchWithEvents("XA_DataSet.XAQuery", XAQeuryEventsHandler)
-        self.__tr_code = tr_code
+        self.tr_code = tr_code
         self._set_inblock_name()
         self._set_outblock_name()
         self._set_outblock1_name()
@@ -22,16 +22,16 @@ class XAQueryEvents:
         self._load_from_resfile()
 
     def _set_inblock_name(self):
-        self.inblock = f"{self.__tr_code}InBlock"
+        self.inblock = f"{self.tr_code}InBlock"
 
     def _set_outblock_name(self):
-        self.outblock = f"{self.__tr_code}OutBlock"
+        self.outblock = f"{self.tr_code}OutBlock"
 
     def _set_outblock1_name(self):
-        self.outblock1 = f"{self.__tr_code}OutBlock1"
+        self.outblock1 = f"{self.tr_code}OutBlock1"
 
     def _set_res_file_dir(self):
-        self.res_file_dir = f"{BASE_DIR}\\Res\\{self.__tr_code}.res"
+        self.res_file_dir = f"{BASE_DIR}\\Res\\{self.tr_code}.res"
 
     def _load_from_resfile(self):
         self.query.LoadFromResFile(self.res_file_dir)
