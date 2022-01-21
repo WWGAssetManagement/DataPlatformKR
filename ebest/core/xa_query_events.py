@@ -4,7 +4,7 @@ from ebest.core.xa_query_events_handler import XAQeuryEventsHandler
 from constants import BASE_DIR
 
 
-class XAQueryEventsBase:
+class XAQueryEvents:
     query = None
     __tr_code = None
     inblock = None
@@ -46,7 +46,7 @@ class XAQueryEventsBase:
         self.query.Request(bNext)
 
     def set_field_data(self, szBlockName, szFieldName, nOccursIndex, szData):
-        # szBlockName: e.g t1820InBlock, szFieldName: e.g shcode, nOccursIndex e.g 0, szData e.g 005930
+        # E.g) szBlockName: t1820InBlock, szFieldName: shcode, nOccursIndex: 0, szData: 005930
         self.query.SetFieldData(szBlockName, szFieldName, nOccursIndex, szData)
 
     def get_block_count(self, outblock):
