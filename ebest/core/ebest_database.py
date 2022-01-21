@@ -14,7 +14,7 @@ class EbestDataBase:
     def __get_table(self, model) -> Table:
         return Table(model.__tablename__, META, autoload_with=EBEST_ENGINE)
 
-    def save(self, dict_data: list):
+    def _save(self, dict_data: list):
         """
         if you using pandas plz list dict inputs like df.to_dict('records')
         :param dict_data like  [{'col1': 1, 'col2': 0.5}, {'col1': 2, 'col2': 0.75}]

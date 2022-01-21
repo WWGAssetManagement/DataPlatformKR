@@ -27,7 +27,7 @@ class StockList(XAQueryEvents, EbestDataBase):
         return self.results
 
     def to_sql(self):
-        self.save(self.results)
+        self._save(self.results)
 
     def __get_rows(self):
         index_num = self._get_block_count(self.outblock)
