@@ -1,5 +1,4 @@
 from ebest.core.xa_session import XASession
-from constants import BASE_DIR
 import os
 
 
