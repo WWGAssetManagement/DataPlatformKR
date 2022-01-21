@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DATETIME, Float, VARCHAR, PrimaryKeyConstraint
+from sqlalchemy import Column, VARCHAR
 from config.settings import BASE
 
 
