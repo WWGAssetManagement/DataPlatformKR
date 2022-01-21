@@ -7,8 +7,8 @@ class XASession:
     inst_xa_session = None
 
     def __init__(self):
-        self.inst_xa_session = win32com.DispatchWithEvents("XA_Session.XASession", XASessionEventHandler)
+        self.inst_xa_session = win32com.client.DispatchWithEvents("XA_Session.XASession", XASessionEventHandler)
 
-    def receive(self):
+    def _receive(self):
         while XASessionEventHandler.status == False:
             pythoncom.PumpWaitingMessages()
