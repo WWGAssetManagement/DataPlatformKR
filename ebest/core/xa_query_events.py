@@ -36,21 +36,21 @@ class XAQueryEvents:
     def _load_from_resfile(self):
         self.query.LoadFromResFile(self.res_file_dir)
 
-    def receive(self):
+    def _receive(self):
         while XAQeuryEventsHandler.status == False:
             pythoncom.PumpWaitingMessages()
         XAQeuryEventsHandler.status = False
 
-    def request(self, bNext='0'):
+    def _request(self, bNext='0'):
         # 0이면 조회 1이면 다음 조회
         self.query.Request(bNext)
 
-    def set_field_data(self, szBlockName, szFieldName, nOccursIndex, szData):
+    def _set_field_data(self, szBlockName, szFieldName, nOccursIndex, szData):
         # E.g) szBlockName: t1820InBlock, szFieldName: shcode, nOccursIndex: 0, szData: 005930
         self.query.SetFieldData(szBlockName, szFieldName, nOccursIndex, szData)
 
-    def get_block_count(self, outblock):
+    def _get_block_count(self, outblock):
         return self.query.GetBlockCount(outblock)
 
-    def get_field_data(self, outblock, szFieldName, nOccursIndex) -> str:
+    def _get_field_data(self, outblock, szFieldName, nOccursIndex) -> str:
         return self.query.GetFieldData(outblock, szFieldName, nOccursIndex).strip()
