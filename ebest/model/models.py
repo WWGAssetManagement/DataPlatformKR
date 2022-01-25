@@ -81,3 +81,20 @@ class ThemaCodeModel(BASE):
     __tablename__ = "tb_thema_code"
     tmcode = Column(VARCHAR(5), primary_key=True, nullable=False)
     tmname = Column(VARCHAR(20))
+
+
+class InvestWarningSupensionTradeLiquidatedTradeModel(BASE):
+    __tablename__ = "tb_investwarning_supensiontrade_liquidatedtrade"
+    hname = Column(VARCHAR(20))
+    price = Column(FLOAT)
+    sign = Column(VARCHAR(1))
+    change = Column(FLOAT)
+    diff = Column(FLOAT)
+    volume = Column(FLOAT)
+    date = Column(DATETIME)
+    edate = Column(DATETIME)
+    shcode = Column(VARCHAR(6))
+    __table_args = (
+        PrimaryKeyConstraint(shcode, date),
+        {},
+    )
