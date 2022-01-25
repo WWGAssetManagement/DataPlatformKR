@@ -4,9 +4,11 @@ from ebest.tr.sectorcode import SectorCode
 from ebest.tr.themacode import ThemaCode
 from ebest.tr.sectorstock import SectorStock
 from ebest.tr.management_insincerity_investment_precautions import ManagementInsincerityInvestmentPrecautions
+from ebest.tr.investwarning_supensiontrade_liquidatedtrade import InvestWarningSupensionTradeLiquidatedTrade
 
 def get_login():
     return Login()
+
 
 def get_stock_list(gubun):
     """
@@ -15,11 +17,14 @@ def get_stock_list(gubun):
     """
     return StockList(gubun=gubun)
 
+
 def get_sector_code():
     return SectorCode()
 
+
 def get_thema_code():
     return ThemaCode()
+
 
 def get_sector_stock(upcode):
     """
@@ -28,9 +33,18 @@ def get_sector_stock(upcode):
     """
     return SectorStock(upcode=upcode)
 
+
 def get_management_insincerity_investment_precautions(jongchk):
     """
     :param jongchk: 종목체크
     :return:
     """
     return ManagementInsincerityInvestmentPrecautions(jongchk=jongchk)
+
+
+def get_investwarning_supensiontrade_liquidatedtrade(jongchk):
+    """
+    :param jongchk: 종목체크 0 or 1
+    :return:
+    """
+    return InvestWarningSupensionTradeLiquidatedTrade(jongchk)
