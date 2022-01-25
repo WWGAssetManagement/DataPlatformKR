@@ -46,7 +46,7 @@ class ManagementInsincerityInvestmentPrecautions(XAQueryEvents, EbestDataBase):
         self.__get_row(index_num)
 
         while True:
-            cts_code = self._get_field_data(self.outblock, 'cts_code', 0)
+            cts_code = self._get_field_data(self.outblock, 'cts_shcode', 0)
             if cts_code == "":
                 break
             time.sleep(3)
