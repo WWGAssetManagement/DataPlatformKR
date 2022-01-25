@@ -3,7 +3,7 @@ Sector Code 등록
 """
 from ebest.core.xa_query_events import XAQueryEvents
 from ebest.core.ebest_database import EbestDataBase
-from ebest.model.sectorcodemodel import SectorCodeModel
+from ebest.model.models import SectorCodeModel
 
 
 class SectorCode(XAQueryEvents, EbestDataBase):

@@ -3,7 +3,7 @@ Thema Code 등록
 """
 from ebest.core.xa_query_events import XAQueryEvents
 from ebest.core.ebest_database import EbestDataBase
-from ebest.model.themacodemodel import ThemaCodeModel
+from ebest.model.models import ThemaCodeModel
 
 
 class ThemaCode(XAQueryEvents, EbestDataBase):

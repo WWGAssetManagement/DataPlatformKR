@@ -3,7 +3,7 @@ StockList: 주식종목조회
 """
 from ebest.core.xa_query_events import XAQueryEvents
 from ebest.core.ebest_database import EbestDataBase
-from ebest.model.stocklistmodel import StockListModel
+from ebest.model.models import StockListModel
 from datetime import datetime
 
 

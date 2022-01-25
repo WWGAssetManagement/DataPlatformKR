@@ -5,7 +5,7 @@ import time
 
 from ebest.core.xa_query_events import XAQueryEvents
 from ebest.core.ebest_database import EbestDataBase
-from ebest.model.sectorstockmodel import SectorStockModel
+from ebest.model.models import SectorStockModel
 from datetime import datetime
 
 
