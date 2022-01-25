@@ -5,13 +5,18 @@ from datetime import datetime
 from daeshin.utils.format import Format
 from daeshin.core.daeshin_database import DaeshinDataBase
 
+
 class MinutePrice(DaeshinDataBase):
     stock_chart = None
     results = None
+    ticker = None
 
-    def __init__(self, code, start, end):
+    def __init__(self):
         self.stock_chart = StockChart()
         DaeshinDataBase.__init__(self, MinutePriceModel)
+
+    def set(self, code, start, end):
+        self.ticker = code
         code = Format.get_code(code)
         self.stock_chart.set_input_value(SetInputValue.CODE.value, code)
         self.stock_chart.set_input_value(SetInputValue.GUBUN.value, Gubun.REQUEST_FOR_PERIOD.value)
@@ -27,7 +32,10 @@ class MinutePrice(DaeshinDataBase):
             Field.VOLUME.value,
             Field.TRANSACTION_AMOUNT.value
         ))
+        self.stock_chart.set_input_value(SetInputValue.CHART_GUBUN.value, ChartGubun.MINUTE.value)
+        self.stock_chart.block_request()
         self.results = self.__get()
+        return self
 
     def __get(self) -> list:
         index_number = self.stock_chart.get_header_value(GetHeaderValue.RECEIVE_NUMBER.value)
@@ -48,6 +56,6 @@ class MinutePrice(DaeshinDataBase):
         transation_amount = self.stock_chart.get_data_value(7, index)
 
         date_time = datetime.strptime(f"{date} {time}", '%Y%m%d %H%M')
-        return {'date': date_time, 'open_price': open_price, 'high_price': high_price, 'low_price': low_price,
-                'close_price': close_price, 'volume': volume, 'transaction_amount': transation_amount
+        return {'date': date_time, 'ticker': self.ticker, 'open': open_price, 'high': high_price, 'low': low_price,
+                'close': close_price, 'volume': volume, 'transaction_amount': transation_amount
                 }
