@@ -42,11 +42,20 @@ class XAQueryEvents:
         XAQeuryEventsHandler.status = False
 
     def _request(self, bNext='0'):
-        # 0이면 조회 1이면 다음 조회
+        """
+        :param bNext: 0이면 조회 1이면 다음 조회
+        :return:
+        """
         self.query.Request(bNext)
 
     def _set_field_data(self, szBlockName, szFieldName, nOccursIndex, szData):
-        # E.g) szBlockName: t1820InBlock, szFieldName: shcode, nOccursIndex: 0, szData: 005930
+        """
+        :param szBlockName: E.g) t1820InBlock
+        :param szFieldName: E.g) shcode
+        :param nOccursIndex: E.g) 0
+        :param szData: E.g) 005930
+        :return:
+        """
         self.query.SetFieldData(szBlockName, szFieldName, nOccursIndex, szData)
 
     def _get_block_count(self, outblock):
