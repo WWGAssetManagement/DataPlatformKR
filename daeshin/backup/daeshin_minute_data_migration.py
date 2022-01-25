@@ -1,6 +1,6 @@
 import os
 from sqlalchemy import create_engine, Table
-from daeshin.models.minutepricemodel import MinutePriceModel
+from daeshin.models.models import MinutePriceModel
 from dotenv import load_dotenv
 from pathlib import Path
 import pandas as pd
@@ -28,7 +28,7 @@ def insert_minute_price(path):
 
 if __name__ == "__main__":
     load_dotenv()
-    file_paths = Path('data').glob("*.pkl")
+    file_paths = Path('../data').glob("*.pkl")
 
     pool = Pool(processes=16)
     pool.map(insert_minute_price, list(file_paths))
