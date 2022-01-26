@@ -31,6 +31,8 @@ class ManagementInsincerityInvestmentPrecautions(XAQueryEvents, EbestDataBase):
         self._receive()
 
     def __request_next(self, cts_shcode):
+        self._set_field_data(self.inblock, "gubun", 0, "0")
+        self._set_field_data(self.inblock, 'jongchk', 0, self.jongchk)
         self._set_field_data(self.inblock, 'cts_shcode', 0, cts_shcode)
         self._request(1)
         self._receive()

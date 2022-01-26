@@ -26,6 +26,8 @@ class InvestWarningSupensionTradeLiquidatedTrade(XAQueryEvents, EbestDataBase):
 
     def __request_next(self, cts_shcode):
         self._set_field_data(self.inblock, 'cts_shcode', 0, cts_shcode)
+        self._set_field_data(self.inblock, "gubun", 0, "0")
+        self._set_field_data(self.inblock, 'jongchk', 0, self.jongchk)
         self._request(1)
         self._receive()
 
@@ -41,7 +43,7 @@ class InvestWarningSupensionTradeLiquidatedTrade(XAQueryEvents, EbestDataBase):
 
         while True:
             cts_shcode = self._get_field_data(self.outblock, 'cts_shcode', 0)
-            if cts_shcode == "":
+            if cts_shcode == "500003":
                 break
             time.sleep(3)
             self.__request_next(cts_shcode)
