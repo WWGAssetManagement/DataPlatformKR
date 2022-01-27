@@ -5,6 +5,8 @@ from ebest.tr.themacode import ThemaCode
 from ebest.tr.sectorstock import SectorStock
 from ebest.tr.management_insincerity_investment_precautions import ManagementInsincerityInvestmentPrecautions
 from ebest.tr.investwarning_supensiontrade_liquidatedtrade import InvestWarningSupensionTradeLiquidatedTrade
+from ebest.tr.stockchart import StockChart
+
 
 def get_login():
     return Login()
@@ -48,3 +50,13 @@ def get_investwarning_supensiontrade_liquidatedtrade(jongchk):
     :return:
     """
     return InvestWarningSupensionTradeLiquidatedTrade(jongchk)
+
+
+def get_stock_chart(shcode, start_date, end_date, gubun="2"):
+    """
+    :param shcode: 005930
+    :param start_date: 20100101
+    :param end_date: 20200101
+    :param gubun: 0: tick, 1: 분, 2: 일, 3: 월
+    """
+    return StockChart(shcode, start_date, end_date, gubun=gubun)
