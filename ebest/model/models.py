@@ -98,3 +98,38 @@ class InvestWarningSupensionTradeLiquidatedTradeModel(BASE):
         PrimaryKeyConstraint(shcode, date),
         {},
     )
+
+
+class StockChartModel(BASE):
+    __tablename__ = "tb_stock_chart"
+    shcode = Column(VARCHAR(6))
+    date = Column(DATETIME)
+    time = Column(VARCHAR(10))
+    open = Column(FLOAT)
+    high = Column(FLOAT)
+    low = Column(FLOAT)
+    close = Column(FLOAT)
+    jdiff_vol = Column(FLOAT)
+    value = Column(FLOAT)
+    jongchk = Column(FLOAT)
+    rate = Column(FLOAT)
+    pricechk = Column(FLOAT)
+    ratevalue = Column(FLOAT)
+    __table_args = (
+        PrimaryKeyConstraint(shcode, date),
+        {},
+    )
+    # jisiga = Column(FLOAT)
+    # jihigh = Column(FLOAT)
+    # jilow = Column(FLOAT)
+    # jiclose = Column(FLOAT)
+    # jivolume = Column(FLOAT)
+    # disiga = Column(FLOAT)
+    # dighigh = Column(FLOAT)
+    # dilow = Column(FLOAT)
+    # diclose = Column(FLOAT)
+    # highend = Column(FLOAT)
+    # lowend = Column(FLOAT)
+    # cts_date = Column(VARCHAR(8))
+    # cts_time = Column(VARCHAR(10))
+    # cts_daygb = Column(VARCHAR(1))
