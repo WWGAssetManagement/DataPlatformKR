@@ -5,7 +5,8 @@ from ebest.model.models import (
     SectorCodeModel,
     StockListModel,
     ThemaCodeModel,
-    InvestWarningSupensionTradeLiquidatedTradeModel
+    InvestWarningSupensionTradeLiquidatedTradeModel,
+    StockChartModel
 )
 from config.settings import DAESHIN_ENGINE, EBEST_ENGINE
 
@@ -18,3 +19,4 @@ ThemaCodeModel.__table__.create(bind=EBEST_ENGINE, checkfirst=True)
 SectorStockModel.__table__.create(bind=EBEST_ENGINE, checkfirst=True)
 ManagementInsincerityInvestmentPrecautionsModel.__table__.create(bind=EBEST_ENGINE, checkfirst=True)
 InvestWarningSupensionTradeLiquidatedTradeModel.__table__.create(bind=EBEST_ENGINE, checkfirst=True)
+StockChartModel.__table__.create(bind=EBEST_ENGINE, checkfirst=True)
